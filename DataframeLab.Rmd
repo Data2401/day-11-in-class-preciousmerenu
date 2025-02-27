@@ -1,6 +1,6 @@
 ---
 title: "Dataframes - In Class lab"
-author: "Dr. Shoemaker"
+author: "Precious Merenu"
 date: "DATA 2401"
 output: html_document
 ---
@@ -30,7 +30,7 @@ Because you're in an RProject, you don't need to set your working directory in R
 - Use the glimpse function to look at the loaded data
 
 ```{r}
-
+glimpse(getwd())
 
 ```
 
@@ -38,14 +38,15 @@ Because you're in an RProject, you don't need to set your working directory in R
 - Create a variable `org` that contains the `organization` column of the dataset
 
 ```{r}
-
-
+org = grants$organization
+print(org)
 ```
 
 
 - Confirm that the "organization" column is a vector using the `is.vector()` function. (This is a useful debugging tip if you hit errors later!)
 
 ```{r}
+print(is.vector(grants))
 
 
 ```
@@ -56,28 +57,56 @@ Now you can ask some interesting questions about the dataset:
 - What was the mean grant value?
 
 ```{r}
+print("These are the col names of the grants dataframe.")
+print("______\n")
 
+
+colnames(grants)
+#___
+
+print("This is the mean of the grants total amount. ")
+print("______\n")
+
+
+grants_mean = mean(grants$total_amount)
+print(grants_mean)
 ```
 
 
 - What was the dollar amount of the largest grant?
 
 ```{r}
+print("This is the organization that recieved the largest dollar amount: ")
+largest_grant = grants$organization[which.max(grants$total_amount)]
+print(largest_grant)
 
+print("______")
+print("This is the corresponding grant dollar amount: ")
+largest_grant_amount = which.max(grants$total_amount)
+print(largest_grant_amount)
 ```
 
 
 - What was the dollar amount of the smallest grant?
 
 ```{r}
+print("This is the organization that recieved the smallest dollar amount: ")
+smallest_grant = grants$organization[which.min(grants$total_amount)]
+print(smallest_grant)
 
+print("______")
+print("This is the corresponding grant dollar amount: ")
+smallest_grant_amount = which.min(grants$total_amount)
+print(smallest_grant_amount)
 ```
 
 
 - Which organization received the largest grant?
 
 ```{r}
-
+print("This is the organization that recieved the largest dollar amount: ")
+largest_grant = grants$organization[which.max(grants$total_amount)]
+print(largest_grant)
 
 ```
 
@@ -85,19 +114,22 @@ Now you can ask some interesting questions about the dataset:
 - Which organization received the smallest grant?
 
 ```{r}
-
+print("This is the organization that recieved the smallest dollar amount: ")
+smallest_grant = grants$organization[which.min(grants$total_amount)]
+print(smallest_grant)
 ```
 
 - How many grants were awarded in 2010?
 
 ```{r}
-
+awarded_post_2010 = if grants$`\Grant start date` == 2010
+print(awarded_post_2010)
 ```
 
 - How much was awarded in 2010? 
 
 ```{r}
-
+awarded_during_2010 = 
 ```
 
 
